@@ -1,6 +1,64 @@
 <!DOCTYPE html>
-<html>
-<head> 
-Github webpage.
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OutfitEase</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
 </head>
-<body> Hello My name is Massiel, this is my github website. :)</body>
+<body>
+    <header>
+        <h1>Welcome to OutfitEase</h1>
+        <!-- Navigation Links -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="outfit-planner.html">Outfit Planner</a></li>
+                <li><a href="weather-time.html">Weather & Time</a></li>
+                <li><a href="user-profile.html">User Profile</a></li>
+                <li><a href="community-forum.html">Community Forum</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Main Content Section -->
+        <section>
+            <h2>Discover Your Perfect Outfit with OutfitEase</h2>
+            <p>Revolutionize the way you plan and create outfits. Say goodbye to wardrobe woes and hello to effortless style!</p>
+            <!-- Additional Content or Call-to-Action Buttons -->
+        </section>
+
+         <section>
+            <h2>Find Out What Suits You Best</h2>
+            <p>Select your body type to discover the most flattering tops and bottoms:</p>
+            <form id="body-type-form">
+                <label for="body-type">Select your body type:</label>
+                <select id="body-type" name="body-type">
+                    <option value="apple">Apple</option>
+                    <option value="pear">Pear</option>
+                    <option value="hourglass">Hourglass</option>
+                    <option value="rectangle">Rectangle</option>
+                </select>
+                <button type="submit">Get Recommendations</button>
+            </form>
+            <div id="recommendations">
+                <!-- Placeholder for displaying recommendations based on body type -->
+            </div>
+        </section>
+
+        
+        <!-- Featured Content Section (Optional) -->
+        <section>
+            <h2>Featured Content</h2>
+            <!-- Placeholder for featured content such as outfit inspiration or styling tips -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 OutfitEase. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>

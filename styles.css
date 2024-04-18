@@ -1,0 +1,42 @@
+body {
+    background-color: #ffe6e6; /* Light pink background color */
+    font-family: Arial, sans-serif; /* Default font family */
+}
+
+header h1 { 
+    font-family: "Blackadder ITC", cursive; /* Blackadder ITC font for the title */
+    font-size: large;
+}
+
+nav{
+    text-align: left;
+    width: 200px;
+    float: right;
+    margin-right: 10px;
+    margin-top: -35px;
+    margin-left: 10px;
+}
+
+nav ul {
+    background-color: #fea2e5;
+    line-height: 2em;
+    list-style-type: none;
+    padding-left: 0px;
+    text-indent: 5px;
+    border-radius: 5px;
+}
+
+nav ul li {
+
+    display: inline; /* Display navigation links horizontally */
+    margin-right: 20px; /* Add spacing between navigation links */
+}
+
+nav ul li a {
+    text-decoration: none; /* Remove underline from navigation links */
+    color: black; /* Set color of navigation links */
+}
+
+nav ul li a:hover {
+    text-decoration: underline; /* Add underline on hover for navigation links */
+}
