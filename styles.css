@@ -4,8 +4,14 @@ body {
 }
 
 header h1 { 
+    text-align: center;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 5px rgb(249, 0, 224);
+    margin: -10px -10px 30px -10px;
     font-family: "Blackadder ITC", cursive; /* Blackadder ITC font for the title */
-    font-size: large;
+    font-size: xx-large;
+    background-color: rgba(242, 139, 208, 0.9);
+    border: 3px solid #3e0056;
 }
 
 nav{
