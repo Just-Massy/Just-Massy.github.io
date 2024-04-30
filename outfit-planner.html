@@ -1,43 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OutfitEase - Outfit Planner</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
-</head>
-
-<body>
-    <header>
-        <h1>Outfit Planner</h1>
-        <!-- Navigation Links -->
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="outfit-planner.html">Outfit Planner</a></li>
-                <li><a href="weather-time.html">Weather & Time</a></li>
-                <li><a href="user-profile.html">User Profile</a></li>
-                <li><a href="community-forum.html">Community Forum</a></li>
-            </ul>
-        </nav>
-    </header>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>OutfitEase</title>
+        <link rel="stylesheet" type="text/css" href="styles.css" media="screen and (min-width:769px)" />
+        <link rel="stylesheet" type="text/css" href="tablet.css" media="screen and (max-width:768px) and (min-width:481px)" />
+        <link rel="stylesheet" type="text/css" href="mobile.css" media="screen and (max-width:480px)" />
+    
+        
+    </head>
+    
+    <body>
+        <header>
+            <h1>OutfitEase</h1>
+            <div class="weather-container">
+                <h2>Current Weather</h2>
+                <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+                <div class="elfsight-app-f46a8dd1-756a-41c8-823c-83ba042b0553" data-elfsight-app-lazy></div>
+            </div>
+            
+            <!-- Navigation Links -->
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="outfit-planner.html">Outfit Planner</a></li>
+                    <li><a href="outfit-organizer.html">Outfit Organizer</a></li>
+                </ul>
+            </nav>
+        </header>
     
     <main>
         <!-- Outfit Planner Section -->
         <section>
             <h2>Create Your Perfect Outfit</h2>
             <!-- Interactive outfit planner tool (you may use forms, buttons, etc.) -->
-            <form>
+            <form id="outfit-form">
                 <!-- Placeholder for clothing items and options to mix and match -->
                 <!-- Example: -->
+
+                <label for="outfit-name">Outfit Name:</label>
+                <input type="text" id="outfit-name" name="outfit-name">
+
+
                 <label for="top">Top:</label>
                 <input type="text" id="top" name="top">
+
                 <label for="bottom">Bottom:</label>
                 <input type="text" id="bottom" name="bottom">
+
+                <label for="dress">Dress:</label>
+                <input type="text" id="dress" name="dress">
+
                 <label for="shoes">Shoes:</label>
                 <input type="text" id="shoes" name="shoes">
-                <label for="jacket/hoodie">Jacket/Hoodie:</label>
-                <input type="text" id="jacket/hoodie" name="jacket/hoodie">
+
+                <label for="jacket-hoodie">Jacket/Hoodie:</label>
+                <input type="text" id="jacket-hoodie" name="jacket-hoodie">
+
+            
+                <label for="hat">Hat:</label>
+                <input type="text" id="hat" name="hat">
+
+                <label for="socks">Socks:</label>
+                <input type="text" id="socks" name="socks">
+
+                <label for="accessories">Accessories:</label>
+                <input type="text" id="accessories" name="accessories">
+
+                <label for="bag">Bag:</label>
+                <input type="text" id="bag" name="bag">
+                
+                <label for="season">Season:</label>
+                <select id="season" name="season">
+                    <option value="summer">Summer</option>
+                    <option value="winter">Winter</option>
+                    <option value="fall">Fall</option>
+                    <option value="spring">Spring</option>
+                </select>
+
+                <label for="outfit-type">Outfit Type:</label>
+                <select id="outfit-type" name="outfit-type">
+                    <option value="casual">Casual</option>
+                    <option value="formal">Formal</option>
+                    <option value="other">Other</option>
+                </select>
 
                 <!-- Add more input fields for other clothing items -->
                 <button type="submit">Create Outfit</button>
@@ -49,6 +96,61 @@
         <p>&copy; 2024 OutfitEase. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script> <!-- Link to your JavaScript file -->
+    <script>
+        // Function to handle form submission and save outfit information to localStorage
+        function saveOutfit(event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+
+            // Get the values entered by the user
+            const name = document.getElementById('outfit-name').value;
+            const top = document.getElementById('top').value;
+            const bottom = document.getElementById('bottom').value;
+            const dress = document.getElementById('dress').value;
+            const shoes = document.getElementById('shoes').value;
+            const jacketHoodie = document.getElementById('jacket-hoodie').value;
+            const hat = document.getElementById('hat').value; 
+            const socks = document.getElementById('socks').value; 
+            const accessories = document.getElementById('accessories').value; 
+            const bag = document.getElementById('bag').value; 
+            const season = document.getElementById('season').value;
+            const outfitType = document.getElementById('outfit-type').value;
+
+            // Create an object to store the outfit information
+            const outfit = {
+                name: name,
+                top: top,
+                bottom: bottom,
+                shoes: shoes,
+                jacketHoodie: jacketHoodie,
+                hat: hat, // New item
+                socks: socks, // New item
+                accessories: accessories, // New item
+                bag: bag, // New item
+                season: season,
+                outfitType: outfitType
+            };
+
+            // Check if outfit data already exists in localStorage
+            let outfits = [];
+            if (localStorage.getItem('outfits')) {
+                outfits = JSON.parse(localStorage.getItem('outfits'));
+            }
+
+            // Add the new outfit to the array
+            outfits.push(outfit);
+
+            // Save the updated outfit data back to localStorage
+            localStorage.setItem('outfits', JSON.stringify(outfits));
+
+            // Reset the form fields after saving the outfit
+            event.target.reset();
+
+            // Display a confirmation message or redirect to another page if needed
+            alert('Outfit created successfully!');
+        }
+
+        // Add event listener to the form for submit event
+        document.getElementById('outfit-form').addEventListener('submit', saveOutfit);
+    </script>
 </body>
 </html>

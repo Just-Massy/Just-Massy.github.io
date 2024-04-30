@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OutfitEase - Outfit Organizer</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen and (min-width:769px)" />
+    <link rel="stylesheet" type="text/css" href="tablet.css" media="screen and (max-width:768px) and (min-width:481px)" />
+    <link rel="stylesheet" type="text/css" href="mobile.css" media="screen and (max-width:480px)" />
+
+</head>
+
+<body>
+
+
+    <header>
+        <h1>Outfit Organizer</h1>
+        <div class="weather-container">
+            <h2>Current Weather</h2>
+            <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+            <div class="elfsight-app-f46a8dd1-756a-41c8-823c-83ba042b0553" data-elfsight-app-lazy></div>
+        </div>
+        <!-- Navigation Links -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="outfit-planner.html">Outfit Planner</a></li>
+                <li><a href="outfit-organizer.html">Outfit Organizer</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <main>
+        <!-- Display the organized outfit information here -->
+        <section>
+            <h2>Your Organized Outfits</h2>
+            <!-- Placeholder for displaying organized outfit information -->
+            <div id="organized-outfits">
+                <!-- Outfit information will be displayed here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 OutfitEase. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to delete an outfit
+        function deleteOutfit(index) {
+            // Retrieve outfits from localStorage
+            let outfits = JSON.parse(localStorage.getItem('outfits'));
+
+            // Remove the outfit at the specified index
+            outfits.splice(index, 1);
+
+            // Update localStorage with the modified outfits array
+            localStorage.setItem('outfits', JSON.stringify(outfits));
+
+            // Refresh the display of organized outfits
+            displayOrganizedOutfits();
+        }
+
+       // Function to retrieve and display organized outfit information
+function displayOrganizedOutfits() {
+    // Check if outfit data exists in localStorage
+    if (localStorage.getItem('outfits')) {
+        // Parse JSON data from localStorage
+        const outfits = JSON.parse(localStorage.getItem('outfits'));
+
+        // Get the reference to the organized-outfits div
+        const organizedOutfitsDiv = document.getElementById('organized-outfits');
+
+        // Clear any existing content in the div
+        organizedOutfitsDiv.innerHTML = '';
+
+        // Loop through each outfit and display it
+        outfits.forEach((outfit, index) => {
+            // Create a div element to display the outfit
+            const outfitDiv = document.createElement('div');
+            outfitDiv.classList.add('outfit');
+
+            // Add outfit details to the div
+            outfitDiv.innerHTML = `
+                <h3>${outfit.name}</h3>
+                <p>Hat: ${outfit.hat}</p>
+                <p>Season: ${outfit.season}</p>
+                <p>Top: ${outfit.top}</p>
+                <p>Bottom: ${outfit.bottom}</p>
+                <p>Shoes: ${outfit.shoes}</p>
+                <p>Socks: ${outfit.socks}</p>
+                <p>Jewelry: ${outfit.jewelry}</p>
+                <p>JacketHoodie: ${outfit.jacketHoodie}</p>
+                <!-- Add more outfit details here as needed -->
+                <button onclick="deleteOutfit(${index})">Delete</button>
+            `;
+
+            // Append the outfit div to the organized-outfits div
+            organizedOutfitsDiv.appendChild(outfitDiv);
+        });
+    } else {
+        // If no outfit data exists in localStorage, display a message
+        const organizedOutfitsDiv = document.getElementById('organized-outfits');
+        organizedOutfitsDiv.innerHTML = '<p>No outfits to display</p>';
+    }
+}
+
+        // Call the displayOrganizedOutfits function when the page loads
+        window.addEventListener('load', displayOrganizedOutfits);
+    </script>
+</body>
+</html>

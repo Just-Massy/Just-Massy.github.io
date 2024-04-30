@@ -3,28 +3,37 @@ body {
     font-family: Arial, sans-serif; /* Default font family */
 }
 
-header h1 { 
+header h1 {
     text-align: center;
     letter-spacing: 3px;
     text-shadow: 3px 3px 5px rgb(249, 0, 224);
-    margin: -10px -10px 30px -10px;
-    font-family: "Blackadder ITC", cursive; /* Blackadder ITC font for the title */
-    font-size: xx-large;
+    margin: 30px auto; /* Center the header horizontally */
+    font-family: "Blackadder ITC", cursive;
+    font-size: xx-large; /* Increased font size */
+    text-align: center;
     background-color: rgba(242, 139, 208, 0.9);
     border: 3px solid #3e0056;
+    border-radius: 20px; /* Adjust the radius to change the roundness of corners */
+    width: 400px; /* Adjust the width as needed */
+    height: 50px; /* Adjust the height as needed */
+    padding: 30px 0; /* Add padding to center text vertically */
 }
 
-nav{
-    text-align: left;
-    width: 200px;
-    float: right;
-    margin-right: 10px;
-    margin-top: -35px;
-    margin-left: 10px;
+
+
+
+nav 
+{
+  text-align: left;
+  width: 200px;
+  float: right;
+  margin-right: 10px;
+  margin-top: -35px;
+  margin-left: 10px;   
 }
 
 nav ul {
-    background-color: #fea2e5;
+    background-color: #c4003e;
     line-height: 2em;
     list-style-type: none;
     padding-left: 0px;
@@ -32,17 +41,100 @@ nav ul {
     border-radius: 5px;
 }
 
-nav ul li {
-
-    display: inline; /* Display navigation links horizontally */
-    margin-right: 20px; /* Add spacing between navigation links */
+nav ul li:hover {
+    background-color: rgb(37, 138, 128);
+    border-radius: 5px;
+}
+        
+nav a {
+    
+    color: rgb(238, 244, 109);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight:bold;
+    text-decoration: none;
 }
 
-nav ul li a {
-    text-decoration: none; /* Remove underline from navigation links */
-    color: black; /* Set color of navigation links */
+section {
+    min-height: 90%;
 }
 
-nav ul li a:hover {
-    text-decoration: underline; /* Add underline on hover for navigation links */
+/* Style for the paragraph */
+p {
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #000000;
+    background-color: #ffe6e6;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 8px rgba(55, 4, 4, 0.595);
+}
+
+
+img {
+    max-width: 50%;
+    height: auto;
+  }
+
+  .enlarged-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+.enlarged-image img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+
+
+/* Style for the form */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ff007b;
+    border-radius: 10px;
+    background-color: #f7798e;
+}
+
+/* Style for labels */
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Style for input fields */
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ad265a;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Style for submit button */
+button[type="submit"] {
+    background-color: #878fea;
+    color: #5900ff;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #ffdc7d;
 }
