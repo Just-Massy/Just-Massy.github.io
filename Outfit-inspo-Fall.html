@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OutfitEase - Outfit Outfit-inspo-Summer</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen and (min-width:769px)" />
+    <link rel="stylesheet" type="text/css" href="tablet.css" media="screen and (max-width:768px) and (min-width:481px)" />
+    <link rel="stylesheet" type="text/css" href="mobile.css" media="screen and (max-width:480px)" />
+    
+</head>
+
+<body>
+
+
+    <header>
+        <h1>Outfit Inspo Summer</h1>
+        <div class="weather-container">
+            <h2>Current Weather</h2>
+            <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+            <div class="elfsight-app-f46a8dd1-756a-41c8-823c-83ba042b0553" data-elfsight-app-lazy></div>
+        </div>
+        <!-- Navigation Links -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                    <li><a href="outfit-planner.html">Outfit Planner</a></li>
+                    <li><a href="outfit-organizer.html">Outfit Organizer</a></li>
+                    <li><a href="Outfit-inspo-Summer.html">Outfit Inspo Summer</a></li>
+                    <li><a href="Outfit-inspo-Fall.html">Outfit Inspo Fall</a></li>
+                    <li><a href="Outfit-inspo-Winterl.html">Outfit Inspo Winter</a></li>
+                    <li><a href="Outfit-inspo-Spring.html">Outfit Inspo Spring</a></li>
+
+            </ul>
+        </nav>
+    </header>
+</head>
+
+
+
+<body>
+
+    <P> Some inspiration for your fall outfits!</P>
+<div class="slider-container">
+  <div class="slider">
+    <div class="slide">
+      <img src= "https://i.pinimg.com/564x/34/33/be/3433bed6d7c5fc692411577b9a578a70.jpg" alt="Knit sweater, hight rise flare jeans, convers, small black bag.">
+    </div>
+    <div class="slide">
+      <img src="https://i.pinimg.com/564x/c9/af/c8/c9afc8b5d40e66fc7bc6c1ebcfb1e2a0.jpg" alt="Sweater, cropped top, brown skirt, leg warmers converse.">
+    </div>
+    <div class="slide">
+      <img src="https://i.pinimg.com/564x/42/c0/6b/42c06bee13846da7851edd105a211269.jpg" alt="Puffy jacket, brown (pants) romper, combat boots hoodies under jacket, brown bag. ">
+    </div>
+      <div class="slide">
+        <img src="https://i.pinimg.com/564x/aa/3d/9d/aa3d9d3e6610403f867d67d2d1b36485.jpg" alt="Black puffer vest, white logsleeve shirt, grey jeans, white tennis shoes, beige bag.">
+    </div>
+    <div class="slide">
+        <img src="https://i.pinimg.com/736x/b2/0d/ed/b20ded3d74e54724a8cae7593597962d.jpg" alt="Black trench coat, cocktail cotton dress, stockings, black platform boots.">
+    </div>
+    <div class="slide">
+        <img src="https://i.pinimg.com/564x/71/99/3a/71993ae42d736e200ebf2cf22ffd4994.jpg" alt="Puffer jacket (military green) Black leggings, green kneww high combat boots, small military green bag, military green baseball cap.">
+    </div>
+  </div>
+</div>
+
+<button id="prevBtn">Previous</button>
+<button id="nextBtn">Next</button>
+</div>
+
+<script>
+const slider = document.querySelector('.slider');
+const slides = document.querySelectorAll('.slide');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+let counter = 0;
+
+prevBtn.addEventListener('click', () => {
+    counter--;
+    if (counter < 0) {
+        counter = slides.length - 1;
+    }
+    updateSlider();
+});
+
+nextBtn.addEventListener('click', () => {
+    counter++;
+    if (counter >= slides.length) {
+        counter = 0;
+    }
+    updateSlider();
+});
+
+function updateSlider() {
+    slider.style.transition = 'transform 0.5s ease-in-out';
+    slider.style.transform = `translateX(${-counter * 100}%)`;
+}
+</script>
+</body>
+</html>

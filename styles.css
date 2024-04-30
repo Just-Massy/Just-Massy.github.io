@@ -138,3 +138,62 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #ffdc7d;
 }
+
+
+.slider-container {
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .slider {
+    display: flex;
+    transition: transform 1s ease;
+  }
+
+  .slide {
+    min-width: 100%;
+  }
+
+  img {
+    align-items: center;
+    width: 100%;
+    height: auto;
+  }
+
+  .slider-container {
+    position: relative;
+}
+
+.slider-container {
+    position: relative;
+}
+
+#prevBtn,
+#nextBtn {
+    position: absolute;
+    bottom: 20px; /* Adjust bottom distance */
+    background-color: #ff7eb9; /* Cute pink background color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 20px; /* Rounded corners */
+    padding: 10px 20px; /* Padding */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 0; /* Ensure buttons appear above images */
+}
+
+#prevBtn:hover,
+#nextBtn:hover {
+    background-color: #ff5c8e; /* Darker pink on hover */
+}
+
+#prevBtn {
+    left: 300px; /* Adjust left position */
+}
+
+#nextBtn {
+    right: 70px; /* Adjust right position */
+}

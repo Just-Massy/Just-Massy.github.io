@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OutfitEase - Outfit Inspo Summer</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen and (min-width:769px)" />
+    <link rel="stylesheet" type="text/css" href="tablet.css" media="screen and (max-width:768px) and (min-width:481px)" />
+    <link rel="stylesheet" type="text/css" href="mobile.css" media="screen and (max-width:480px)" />
+    
+</head>
+
+<body>
+
+
+    <header>
+        <h1>Outfit Inspo Summer</h1>
+        <div class="weather-container">
+            <h2>Current Weather</h2>
+            <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+            <div class="elfsight-app-f46a8dd1-756a-41c8-823c-83ba042b0553" data-elfsight-app-lazy></div>
+        </div>
+        <!-- Navigation Links -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                    <li><a href="outfit-planner.html">Outfit Planner</a></li>
+                    <li><a href="outfit-organizer.html">Outfit Organizer</a></li>
+                    <li><a href="Outfit-inspo-Summer.html">Outfit Inspo Summer</a></li>
+                    <li><a href="Outfit-inspo-Fall.html">Outfit Inspo Fall</a></li>
+                    <li><a href="Outfit-inspo-Winterl.html">Outfit Inspo Winter</a></li>
+                    <li><a href="Outfit-inspo-Spring.html">Outfit Inspo Spring</a></li>
+            </ul>
+        </nav>
+    </header>
+</head>
+
+<body>
+
+    <p> Some inspiration for your summer outfits!</p>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide">
+                <img src="https://hips.hearstapps.com/hmg-prod/images/gettyimages-1414318830a-64949ff73dd1b.jpg?resize=980:*" alt="Knit dress, sunglasses, orange bag.">
+            </div>
+            <div class="slide">
+                <img src="https://hips.hearstapps.com/hmg-prod/images/gettyimages-1334908207a-6494a015f1e35.jpg?resize=980:*" alt="Stripped Button down set. With white sandals.">
+            </div>
+            <div class="slide">
+                <img src="https://hips.hearstapps.com/hmg-prod/images/gettyimages-1404335719a-6494a5ece19da.jpg?resize=980:*" alt="Tan tank top, black trousers, panda dunks, sunglasses, black geometryc bag.">
+            </div>
+            <div class="slide">
+                <img src="https://i.pinimg.com/564x/f7/59/c0/f759c08dc08cc32ea86bed69be538121.jpg" alt="Crop top, low jeans, air force 1s.">
+            </div>
+            <div class="slide">
+                <img src="https://i.pinimg.com/564x/39/fc/c5/39fcc589d6f59c14923f2ae964c74fc7.jpg" alt="Overalls (green). white socks, white shirt. Two Gold necklases">
+            </div>
+            <div class="slide">
+                <img src="https://i.pinimg.com/originals/6c/72/17/6c72171d4c177a044aaf4c1cdaf444f9.jpg" alt="Monochrome brown outfit, Brown tube top, brown cargo baggy jeans, brown dunks, small brown bag, brown oversized button up (opened)">
+            </div>
+        </div>
+        <button id="prevBtn">Previous</button>
+        <button id="nextBtn">Next</button>
+    </div>
+
+    <script>
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let counter = 0;
+
+        prevBtn.addEventListener('click', () => {
+            counter--;
+            if (counter < 0) {
+                counter = slides.length - 1;
+            }
+            updateSlider();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            counter++;
+            if (counter >= slides.length) {
+                counter = 0;
+            }
+            updateSlider();
+        });
+
+        function updateSlider() {
+            slider.style.transition = 'transform 0.5s ease-in-out';
+            slider.style.transform = `translateX(${-counter * 100}%)`;
+        }
+    </script>
+</body>
+</html>

@@ -145,3 +145,66 @@ body {
     max-height: 90vh; /* Set maximum height to 90% of the viewport height */
   }
   
+  
+  
+  .slider-container {
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .slider {
+    display: flex;
+    transition: transform 1s ease;
+  }
+  
+  .slide {
+    min-width: 100%;
+  }
+  
+  img {
+    align-items: center;
+    width: 100%;
+    height: auto;
+  }
+  
+  .slider-container {
+    position: relative;
+  }
+  
+  .slider-container {
+    position: relative;
+  }
+  
+  #prevBtn,
+  #nextBtn {
+    position: absolute;
+    bottom: 20px; /* Adjust bottom distance */
+    background-color: #ff7eb9; /* Cute pink background color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 20px; /* Rounded corners */
+    padding: 10px 20px; /* Padding */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 0; /* Ensure buttons appear above images */
+  }
+  
+ 
+  @media screen and (max-width: 480px) {
+    #prevBtn,
+    #nextBtn {
+        bottom: 5px; /* Adjust bottom distance for mobile */
+        font-size: 14px; /* Adjust font size for mobile */
+    }
+  
+    #prevBtn {
+        left: 10px; /* Adjust left position for mobile */
+    }
+  
+    #nextBtn {
+        right: 10px; /* Adjust right position for mobile */
+    }
+  }
