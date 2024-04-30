@@ -178,7 +178,21 @@ body {
     position: relative;
   }
   
-  #prevBtn,
+  #prevBtn
+  {
+    position: absolute;
+    bottom: 20px; /* Adjust bottom distance */
+    background-color: #ff7eb9; /* Cute pink background color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 20px; /* Rounded corners */
+    padding: 10px 20px; /* Padding */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 0; /* Ensure buttons appear above images */
+  }
+  
   #nextBtn {
     position: absolute;
     bottom: 20px; /* Adjust bottom distance */
@@ -193,7 +207,8 @@ body {
     z-index: 0; /* Ensure buttons appear above images */
   }
   
-
+  
+  /* Positioning adjustments for mobile */
   @media screen and (max-width: 480px) {
     #prevBtn,
     #nextBtn {
@@ -202,7 +217,7 @@ body {
     }
   
     #prevBtn {
-        left: 10px; /* Adjust left position for mobile */
+        left: 10%; /* Adjust left position for mobile */
     }
   
     #nextBtn {
